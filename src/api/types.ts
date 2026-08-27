@@ -172,15 +172,15 @@ export interface CommentListQuery extends PageQuery {
 }
 
 // 友链
-export interface FriendVO {
-  id: string;
+export interface FriendDTO {
+  website: string;
   nickname: string;
   avatar: string;
   description: string;
-  website: string;
-  isPublished: boolean;
-  views: number;
-  createTime: string;
+}
+
+export interface FriendVO extends FriendDTO {
+  id: string;
 }
 
 export interface FriendPageDTO extends PageQuery {

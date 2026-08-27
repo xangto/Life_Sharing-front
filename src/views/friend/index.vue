@@ -14,9 +14,9 @@
           rel="external nofollow noopener"
           class="card flex flex-col items-center rounded-lg p-3 transition-transform hover:-translate-y-1 hover:shadow-lg"
           :style="randomRGB()"
-          v-for="(item, index) in friendList"
-          :key="index"
-          @click="addViews(item.nickname)"
+          v-for="item in friendList"
+          :key="item.id"
+          @click="addViews(item.id)"
         >
           <div class="h-17.5 w-17.5 overflow-hidden rounded-full bg-transparent">
             <img
@@ -28,7 +28,7 @@
           </div>
           <div class="mt-2 w-full text-center text-white">
             <div class="text-xl font-medium">{{ item.nickname }}</div>
-            <div class="mt-1 mb-2">{{ item.description }}</div>
+            <div class="mt-1 mb-2 break-all">{{ item.description }}</div>
           </div>
         </a>
       </div>
@@ -45,49 +45,58 @@
     </div>
 
     <div class="p-4">
-      <div class="text-lg font-bold text-gray-700">添加友链</div>
+      <div class="py-3 text-lg font-bold text-gray-700">添加友链</div>
+
+      <el-form
+        :model="friendForm"
+        :rules="rules"
+        ref="formRef"
+      >
+        <el-form-item prop="nickname">
+          <el-input
+            v-model.trim="friendForm.nickname"
+            placeholder="昵称"
+          />
+        </el-form-item>
+        <el-form-item prop="avatar">
+          <el-input
+            v-model.trim="friendForm.avatar"
+            placeholder="头像"
+          />
+        </el-form-item>
+        <el-form-item prop="website">
+          <el-input
+            v-model.trim="friendForm.website"
+            placeholder="网址"
+          />
+        </el-form-item>
+        <el-form-item prop="description">
+          <el-input
+            v-model.trim="friendForm.description"
+            :maxlength="40"
+            placeholder="描述"
+          />
+        </el-form-item>
+        <el-form-item>
+          <el-button
+            type="primary"
+            :loading="loading"
+            @click="handleSubmit"
+            >发送</el-button
+          >
+        </el-form-item>
+      </el-form>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-// import { getData, addViewsByNickname } from '@/api/friend';
-// import CommentList from '@/components/comment/CommentList';
+import { ref, reactive } from 'vue';
+import type { FormInstance, FormRules } from 'element-plus';
+import { checkUrl } from '@/utils/reg.ts';
+import type { FriendDTO, FriendVO } from '@/api/types.ts';
 
-interface FriendItem {
-  website: string;
-  nickname: string;
-  avatar: string;
-  description: string;
-}
-
-interface FriendInfo {
-  content: string;
-  commentEnabled: boolean;
-}
-
-const friendList = ref<FriendItem[]>([
-  {
-    website: 'xaasd',
-    nickname: 'xaasd',
-    avatar: 'https://s1.ax1x.com/2020/03/26/G93rfs.jpg',
-    description: 'xaasd',
-  },
-  {
-    website: 'xaasd',
-    nickname: 'xaasd',
-    avatar: '',
-    description: 'xaasd',
-  },
-]);
-const info = ref<FriendInfo>({
-  content:
-    '<p>随机排序，不分先后。欢迎交换友链~(￣▽￣)~*</p>\n<ul>\n<li>昵称：Naccl</li>\n<li>一句话：游龙当归海，海不迎我自来也。</li>\n<li>网址：<a href="https://naccl.top" target="_blank" rel="external nofollow noopener">https://naccl.top</a></li>\n<li>头像URL：<a href="https://naccl.top/img/avatar.jpg" target="_blank" rel="external nofollow noopener">https://naccl.top/img/avatar.jpg</a></li>\n</ul>\n<p>仅凭个人喜好添加友链，请在收到我的回复邮件后再于贵站添加本站链接。原则上已添加的友链不会删除，如果你发现自己被移除了，恕不另行通知，只需和我一样做就好。</p>\n',
-  commentEnabled: false,
-});
-
-const bgColor = ref([
+const bgColor = [
   '#1abc9c',
   '#2ecc71',
   '#3498db',
@@ -100,7 +109,62 @@ const bgColor = ref([
   '#9980fa',
   '#8c7ae6',
   '#f79f1f',
+];
+
+const friendForm = reactive<FriendDTO>({
+  nickname: '',
+  avatar: '',
+  description: '',
+  website: '',
+});
+
+const rules = reactive<FormRules<FriendDTO>>({
+  nickname: [
+    { required: true, message: '请输入昵称' },
+    { max: 15, message: '昵称不可多于15个字符' },
+  ],
+  // avatar: [],
+  description: [{ max: 40, message: '不可多于40个字符' }],
+  website: [{ validator: checkUrl }],
+});
+
+const loading = ref(false);
+const formRef = ref<FormInstance | null>(null);
+const friendList = ref<FriendVO[]>([
+  {
+    id: '131as54d6a5s1dasd',
+    website: 'xaasd',
+    nickname: 'xaasd',
+    avatar: 'https://s1.ax1x.com/2020/03/26/G93rfs.jpg',
+    description: 'xaasd',
+  },
+  {
+    id: '131as54d6a5s1dasd',
+    website: 'xaasd',
+    nickname: 'xaasd',
+    avatar: '',
+    description: 'xaasd',
+  },
+  {
+    id: '131as54d6a5s1das21d',
+    website: 'xaasd',
+    nickname: 'xaasd',
+    avatar: '',
+    description: 'xaasd',
+  },
+  {
+    id: '131as54d6a5113s1das21d',
+    website: 'xaasd',
+    nickname: 'xaasd',
+    avatar: '',
+    description: 'xaasd',
+  },
 ]);
+const info = {
+  content:
+    '<p>随机排序，不分先后。欢迎交换友链~(￣▽￣)~*</p>' +
+    '\n<p>收到请求后，会在管理台审核后再添加！</p>\n',
+};
 
 // 图片加载失败兜底
 const handleImgError = (e: Event) => {
@@ -108,32 +172,27 @@ const handleImgError = (e: Event) => {
   target.src = '/error.png';
 };
 
-// // 获取友链数据
-// const getDataFunc = () => {
-//   getData().then(res => {
-//     if (res.code === 200) {
-//       friendList.value = res.data.friendList;
-//       info.value = res.data.friendInfo;
-//     } else {
-//       console.error(res.msg);
-//     }
-//   }).catch(() => {
-//     console.error("请求失败");
-//   });
-// };
+const handleSubmit = () => {
+  loading.value = true;
+  formRef.value
+    ?.validate()
+    .then((valid) => {
+      if (valid) {
+      }
+    })
+    .finally(() => {
+      loading.value = false;
+    });
+};
 
 // 点击计数
-const addViews = (nickname: string) => {
-  // addViewsByNickname(nickname);
+const addViews = (id: string) => {
+  console.log(id);
 };
 
 // 随机背景色
 const randomRGB = () => {
-  const index = Math.floor(Math.random() * bgColor.value.length);
-  return { backgroundColor: bgColor.value[index] };
+  const index = Math.floor(Math.random() * bgColor.length);
+  return { backgroundColor: bgColor[index] };
 };
-
-// onMounted(() => {
-//   getDataFunc();
-// });
 </script>
