@@ -8,7 +8,7 @@ import Category from '@/layouts/Category.vue';
 </script>
 
 <template>
-  <div class="flex h-full w-full flex-col items-center justify-center">
+  <div class="flex min-h-full w-full flex-col items-center justify-center">
     <header-bar />
     <div class="w-full flex-1 bg-[rgba(239,239,239,1)] pt-16">
       <div class="flex h-full w-full justify-center py-4">
@@ -30,8 +30,15 @@ import Category from '@/layouts/Category.vue';
 </template>
 
 <style scoped>
-.aside-container > * {
-  margin-bottom: 16px;
-  width: 250px;
+.aside-container {
+  display: flex;
+  flex-direction: column;
+  & > * {
+    margin-bottom: 16px;
+    width: 250px;
+  }
+  & > *:last-child {
+    margin-bottom: 0;
+  }
 }
 </style>

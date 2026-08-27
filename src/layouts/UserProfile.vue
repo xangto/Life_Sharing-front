@@ -10,14 +10,14 @@ const activeName = ref<string>('1');
 </script>
 
 <template>
-  <div class="hover-shadow overflow-hidden rounded-xl pb-4 shadow">
+  <div class="hover-shadow border-primary-opcatity overflow-hidden rounded-xl border pb-4 shadow">
     <div>
       <img
         src="/avatar.jpg"
         alt=""
       />
     </div>
-    <div class="py-4 text-center text-xl font-medium">XangTo</div>
+    <div class="py-4 text-center text-xl font-medium">王剑桥</div>
     <div class="text-info border-b border-[#2224261a] pb-4 text-center text-sm">
       一段个性签名，嘿嘿
     </div>
@@ -41,16 +41,14 @@ const activeName = ref<string>('1');
         accordion
       >
         <el-collapse-item
-          title="Consistency"
+          title="个人评价"
           name="1"
         >
           <div>
-            Consistent with real life: in line with the process and logic of real life, and comply
-            with languages and habits that the users are used to;
+            王剑桥这个人真的很靠谱，做事踏实有想法，遇事沉稳不浮躁。不管是钻研技术还是日常相处，都思路清晰，善于思考，遇到难题愿意沉下心琢磨解决办法。
           </div>
           <div>
-            Consistent within interface: all elements should be consistent, such as: design style,
-            icons and texts, position of elements, etc.
+            待人真诚坦荡，相处起来舒服自在，既有敢钻研的韧劲，又有温和通透的格局，和他共事或是做朋友都特别让人安心，是能力与人品都很出彩的人。
           </div>
         </el-collapse-item>
         <el-collapse-item
