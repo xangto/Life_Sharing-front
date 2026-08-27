@@ -50,7 +50,6 @@ body,
 #app {
     margin: 0;
     padding: 0;
-    height: 100%;
 }
 
 *,
@@ -87,7 +86,7 @@ svg {
 }
 
 img {
-    /*object-fit: cover;*/
+    object-fit: cover;
     height: 100%;
     width: 100%;
 }

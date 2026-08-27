@@ -34,28 +34,11 @@
 
 <script setup lang="ts">
 import { Icon } from '@iconify/vue';
-import { ref, onMounted, onUnmounted } from 'vue';
-import { debounce } from '@/utils/debouns.ts';
+import { useScrollTOp } from '@/hooks/useScrollTOp.ts';
 
 const currentYear = new Date().getFullYear();
-const showBackTop = ref(false);
 
-const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-};
-
-// 滚动回调，防抖间隔 100ms
-const handleScroll = debounce(() => {
-  showBackTop.value = window.scrollY > 0;
-}, 150);
-
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
-});
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll);
-});
+const { scrollToTop, showBackTop } = useScrollTOp();
 </script>
 
 <style scoped></style>

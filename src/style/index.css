@@ -41,3 +41,79 @@
     /*line-height: 1.6;*/
     /*max-height: 3.2em; !* 2行 × 1.6 = 3.2em，可选 *!*/
 }
+
+/* 元素上下跳动 */
+.floating-element {
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* 流光文字 */
+.shimmer-text {
+    font-size: 48px;
+    font-weight: 900;
+    background: linear-gradient(
+            90deg,
+            #000 0%,
+            #000 40%,
+            #00d4ff 50%,
+            #000 60%,
+            #000 100%
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 2s linear infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 300% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* 彩虹文字 */
+.rainbow-text {
+    font-size: 48px;
+    font-weight: 900;
+    background: linear-gradient(
+            90deg,
+            #ff0000,
+            #ff8800,
+            #ffff00,
+            #00ff00,
+            #0088ff,
+            #8800ff,
+            #ff0000
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: rainbow 3s linear infinite;
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 300% 50%;
+    }
+}
+
