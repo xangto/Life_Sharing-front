@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 import { Icon } from '@iconify/vue';
+import router from '@/router';
 
-const router = useRouter();
 const route = useRoute();
 
 const handleRouterTo = (path: string) => {

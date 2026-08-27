@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue';
 import TagItem from '@/components/TagItem.vue';
+import router from '@/router';
 
 const tagList = [
   {
@@ -20,11 +21,15 @@ const tagList = [
     color: '#e0188d',
   },
 ];
+
+const handleToCategory = (categoryName: string) => {
+  router.push({ path: `/category/${categoryName}` });
+};
 </script>
 
 <template>
   <div
-    class="blog-card-container border-primary-opcatity hover:border-primary relative flex cursor-pointer rounded-xl border p-4"
+    class="blog-card-container border-primary-opcatity hover:border-primary relative mb-4 flex w-full cursor-pointer rounded-xl border p-4"
   >
     <div class="mr-4 flex-1">
       <div class="flex flex-col">
@@ -38,7 +43,10 @@ const tagList = [
           单描述简单描述简单描述简单描述简单描述简单描述简单描述简单描述简单描述
         </div>
         <div class="border-primary-opcatity mb-2 flex items-center border-t pt-2">
-          <div class="text-primary flex justify-center hover:underline">
+          <div
+            class="text-primary flex justify-center hover:underline"
+            @click.stop="handleToCategory('文章分类')"
+          >
             <Icon icon="ant-design:folder-open-outlined" />
             <span class="ml-1">文章分类</span>
           </div>
@@ -86,9 +94,6 @@ const tagList = [
 
 <style scoped>
 .blog-card-container {
-  margin-bottom: 16px;
-  width: 100%;
-
   &:hover {
     box-shadow:
       0 4px 6px -1px rgba(0, 0, 0, 0.07),

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue';
 import type { OptionVO } from '@/api/types.ts';
+import router from '@/router';
 
 const categoryList: OptionVO[] = [
   {
@@ -8,12 +9,19 @@ const categoryList: OptionVO[] = [
     value: 'home',
   },
 ];
+
+const handleTo = (item: string) => {
+  router.push({ path: `/category/${item}` });
+};
 </script>
 
 <template>
   <div class="hover-shadow border-primary-opcatity flex flex-col rounded-xl border p-4">
     <div class="border-primary-opcatity flex border-b pb-1">
-      <Icon icon="ant-design:folder-open-outlined" class="text-primary text-2xl" />
+      <Icon
+        icon="ant-design:folder-open-outlined"
+        class="text-primary text-2xl"
+      />
       <span class="ml-2 text-lg font-bold">文章分类</span>
     </div>
     <div class="mt-2 flex flex-col">
@@ -23,6 +31,7 @@ const categoryList: OptionVO[] = [
           v-for="item in 6"
           :key="item"
           class="hover-arrow hover:text-primary flex h-10 cursor-pointer items-center rounded-lg pr-2 pl-4 hover:bg-[#c0c0c038]"
+          @click="handleTo('分类' + item)"
         >
           分类{{ item }}
         </div>

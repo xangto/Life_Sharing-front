@@ -1,8 +1,13 @@
 <script setup lang="ts">
-defineProps({
-  name: String,
-  color: String,
-});
+import router from '@/router';
+
+const { name = '', color = '' } = defineProps<{
+  name: string;
+  color: string;
+}>();
+const handleTo = (tagName: string) => {
+  router.push({ path: `/tag/${tagName}` });
+};
 </script>
 
 <template>
@@ -13,6 +18,7 @@ defineProps({
       'border-color': color,
       color: color,
     }"
+    @click="handleTo(name)"
   >
     标签{{ name }}
   </div>
