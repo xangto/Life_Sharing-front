@@ -18,26 +18,42 @@
 
 /* 与 Element Plus 默认主色一致，提供 text-primary / bg-primary 等工具类 */
 @theme {
-    --color-primary: #08d07e;
-    --color-primary-light: #ecf5ff;
-    --color-success: #67c23a;
-    --color-warning: #e6a23c;
-    --color-danger: #f56c6c;
-    --color-info: #909399;
+  --color-primary: #08d07e;
+  --color-primary-opcatity: rgb(8 208 126 / 0.4);
+  --color-primary-light: #ecf5ff;
+  --color-success: #67c23a;
+  --color-warning: #e6a23c;
+  --color-danger: #f56c6c;
+  --color-info: #909399;
+}
+
+html {
+  /* 平滑滚动 */
+  scroll-behavior: smooth;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+body {
+  color: rgb(0 0 0 / 0.9);
+  /* 字体设置 */
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC',
+    'Microsoft YaHei', sans-serif;
 }
 
 html,
 body,
 #app {
-    height: 100%;
-    font-size: 14px;
-    line-height: 1.5;
-    color: rgb(0 0 0 / 0.9);
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
-body {
-    margin: 0;
-    font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 /* Tailwind preflight 已禁用，手动重置标题与段落的外边距 */
@@ -48,10 +64,21 @@ h4,
 h5,
 h6,
 p {
-    margin: 0;
+  margin: 0;
+  padding: 0;
 }
 
-/* el-menu 自带右边框，避免与侧边栏边框叠成双线 */
-.el-menu {
-    border-right: none;
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul,
+ol {
+  list-style: none;
 }

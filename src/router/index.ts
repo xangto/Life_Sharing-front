@@ -1,6 +1,6 @@
-import {createRouter, createWebHashHistory} from 'vue-router'
-import type {RouteRecordRaw} from 'vue-router'
-import Layout from '@/layouts/index.vue'
+import { createRouter, createWebHashHistory } from 'vue-router';
+import type { RouteRecordRaw } from 'vue-router';
+import Layout from '@/layouts/index.vue';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -38,14 +38,14 @@ const routes: RouteRecordRaw[] = [
         name: 'About',
         component: () => import('@/views/about/index.vue'),
       },
-    ]
+    ],
   },
-  {path: '/:pathMatch(.*)*', redirect: '/'},
-]
+  { path: '/:pathMatch(.*)*', redirect: '/' },
+];
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
-})
+});
 
-export default router
+export default router;
