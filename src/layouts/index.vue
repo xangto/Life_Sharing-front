@@ -14,12 +14,12 @@ import Category from '@/layouts/Category.vue';
       <div class="flex h-full w-full justify-center py-4">
         <div class="aside-container">
           <user-profile />
-          <random-article />
         </div>
         <div class="mx-4 h-full w-1/2 bg-[white]">
           <router-view />
         </div>
         <div class="aside-container">
+          <random-article />
           <category />
           <tag-cloud />
         </div>

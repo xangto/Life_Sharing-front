@@ -41,7 +41,7 @@ const tagList: TagItem[] = [
         <div
           v-for="item in tagList"
           :key="item.name"
-          class="hover-transform m-1 cursor-pointer rounded-lg border px-2 py-1"
+          class="hover-normal m-1 cursor-pointer rounded-lg border px-2 py-1"
           :style="{
             'border-color': item.color,
             color: item.color,
@@ -54,13 +54,4 @@ const tagList: TagItem[] = [
   </div>
 </template>
 
-<style scoped>
-.hover-transform {
-  transition-property: transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 0.4s;
-  &:hover {
-    transform: translateX(-1px) translateY(-2px);
-  }
-}
-</style>
+<style scoped></style>
