@@ -1,7 +1,79 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { Icon } from '@iconify/vue';
+import { ref } from 'vue';
+
+const handleTo = (url: string) => {
+  console.log(url);
+};
+
+const activeName = ref<string>('1');
+</script>
 
 <template>
-  <div>用户信息</div>
+  <div class="hover-shadow overflow-hidden rounded-xl pb-4 shadow">
+    <div>
+      <img
+        src="/avatar.jpg"
+        alt=""
+      />
+    </div>
+    <div class="py-4 text-center text-xl font-medium">XangTo</div>
+    <div class="text-info border-b border-[#2224261a] pb-4 text-center text-sm">
+      一段个性签名，嘿嘿
+    </div>
+    <div class="flex items-center justify-center border-b border-[#2224261a] py-4">
+      <div
+        v-for="(item, i) in 5"
+        :key="item"
+        :class="[i > 0 ? 'ml-2' : '', i % 2 === 0 ? 'text-[red]' : '']"
+        class="border-primary-opcatity flex cursor-pointer items-center justify-center rounded-[50%] border bg-[#cccccc98] p-2 hover:bg-[#cccccc]"
+        @click="handleTo('/')"
+      >
+        <Icon
+          icon="ant-design:github-outlined"
+          class="text-xl"
+        />
+      </div>
+    </div>
+    <div class="collapse-container px-4">
+      <el-collapse
+        v-model="activeName"
+        accordion
+      >
+        <el-collapse-item
+          title="Consistency"
+          name="1"
+        >
+          <div>
+            Consistent with real life: in line with the process and logic of real life, and comply
+            with languages and habits that the users are used to;
+          </div>
+          <div>
+            Consistent within interface: all elements should be consistent, such as: design style,
+            icons and texts, position of elements, etc.
+          </div>
+        </el-collapse-item>
+        <el-collapse-item
+          title="Feedback"
+          name="2"
+        >
+          <div>
+            Operation feedback: enable the users to clearly perceive their operations by style
+            updates and interactive effects;
+          </div>
+          <div>
+            Visual feedback: reflect current state by updating or rearranging elements of the page.
+          </div>
+        </el-collapse-item>
+      </el-collapse>
+    </div>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.collapse-container * {
+  background-color: unset;
+  color: unset;
+  border-bottom-color: #2224261a;
+}
+</style>

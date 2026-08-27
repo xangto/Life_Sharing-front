@@ -78,6 +78,10 @@ svg {
   height: auto;
 }
 
+img {
+  object-fit: contain;
+}
+
 ul,
 ol {
   list-style: none;

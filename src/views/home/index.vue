@@ -1,7 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>首页</div>
+  <div>
+    <div class="h-[1600px]">首页</div>
+  </div>
 </template>
 
 <style scoped></style>

@@ -31,6 +31,7 @@ import Category from '@/layouts/Category.vue';
 
 <style scoped>
 .aside-container > * {
+  margin-bottom: 16px;
   width: 250px;
 }
 </style>

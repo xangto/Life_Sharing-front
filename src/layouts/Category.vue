@@ -11,7 +11,7 @@ const categoryList: OptionVO[] = [
 </script>
 
 <template>
-  <div class="hover-shadow border-primary-opcatity mb-4 flex flex-col rounded-xl border p-4">
+  <div class="hover-shadow border-primary-opcatity flex flex-col rounded-xl border p-4">
     <div class="border-primary-opcatity flex border-b pb-1">
       <Icon icon="ant-design:folder-open-outlined" class="text-primary text-2xl" />
       <span class="ml-2 text-lg font-bold">文章分类</span>
