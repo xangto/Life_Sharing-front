@@ -11,13 +11,17 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    BlogCard: typeof import('./components/BlogCard.vue')['default']
     Collapse: typeof import('./components/Collapse.vue')['default']
     ElCollapse: typeof import('element-plus/es')['ElCollapse']
     ElCollapseItem: typeof import('element-plus/es')['ElCollapseItem']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
+    ElDivider: typeof import('element-plus/es')['ElDivider']
     ElEmpty: typeof import('element-plus/es')['ElEmpty']
+    ElPagination: typeof import('element-plus/es')['ElPagination']
     Empty: typeof import('./components/Empty.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TagItem: typeof import('./components/TagItem.vue')['default']
   }
 }

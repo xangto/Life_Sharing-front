@@ -15,7 +15,7 @@ import Category from '@/layouts/Category.vue';
         <div class="aside-container">
           <user-profile />
         </div>
-        <div class="mx-4 h-full w-1/2 bg-[white]">
+        <div class="mx-4 h-full w-1/2">
           <router-view />
         </div>
         <div class="aside-container">

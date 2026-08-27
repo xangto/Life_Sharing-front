@@ -1,9 +1,19 @@
-<script setup lang="ts"></script>
-
+<script setup lang="ts">
+</script>
 
 <template>
-  <div>
-    <div class="h-[1600px]">首页</div>
+  <div class="flex flex-col items-center">
+    <blog-card
+      v-for="item in 5"
+      :key="item"
+    />
+    <div class="flex justify-center">
+      <el-pagination
+        background
+        layout="prev, pager, next"
+        :total="15"
+      />
+    </div>
   </div>
 </template>
 

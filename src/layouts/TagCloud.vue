@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue';
+import TagItem from '@/components/TagItem.vue';
 
 interface TagItem {
   name: string;
@@ -38,17 +39,12 @@ const tagList: TagItem[] = [
     <div class="mt-2 flex flex-wrap">
       <empty v-if="tagList.length === 0" />
       <template v-else>
-        <div
+        <tag-item
           v-for="item in tagList"
           :key="item.name"
-          class="hover-normal m-1 cursor-pointer rounded-lg border px-2 py-1"
-          :style="{
-            'border-color': item.color,
-            color: item.color,
-          }"
-        >
-          标签{{ item.name }}
-        </div>
+          :name="item.name"
+          :color="item.color"
+        />
       </template>
     </div>
   </div>

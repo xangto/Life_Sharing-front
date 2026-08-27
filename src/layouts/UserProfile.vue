@@ -6,7 +6,7 @@ const handleTo = (url: string) => {
   console.log(url);
 };
 
-const activeName = ref<string>('1');
+const activeName = ref<string>('');
 </script>
 
 <template>

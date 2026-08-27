@@ -27,6 +27,10 @@
   --color-info: #909399;
 }
 
+:root {
+  --el-color-primary: var(--color-primary);
+}
+
 html {
   /* 平滑滚动 */
   scroll-behavior: smooth;
@@ -79,7 +83,7 @@ svg {
 }
 
 img {
-  object-fit: cover;
+  /*object-fit: cover;*/
   height: 100%;
   width: 100%;
 }

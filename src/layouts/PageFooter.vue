@@ -25,7 +25,7 @@
             XANGTO`S BLOG
           </span>
         </span>
-        <span class="text-gray-300">|</span>
+        <el-divider direction="vertical" />
         <span>备案信息备20005222号</span>
       </div>
     </div>
