@@ -13,6 +13,31 @@ const routes: RouteRecordRaw[] = [
         name: 'Home',
         component: () => import('@/views/home/index.vue'),
       },
+      {
+        path: '/category/:categoryId',
+        name: 'Category',
+        component: () => import('@/views/category/index.vue'),
+      },
+      {
+        path: '/blog/:blogId',
+        name: 'Blog',
+        component: () => import('@/views/blog/index.vue'),
+      },
+      {
+        path: '/tag/:tagId',
+        name: 'Tag',
+        component: () => import('@/views/tag/index.vue'),
+      },
+      {
+        path: '/friend',
+        name: 'Friend',
+        component: () => import('@/views/friend/index.vue'),
+      },
+      {
+        path: '/about',
+        name: 'About',
+        component: () => import('@/views/about/index.vue'),
+      },
     ]
   },
   {path: '/:pathMatch(.*)*', redirect: '/'},
