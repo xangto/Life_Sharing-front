@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { Icon } from '@iconify/vue';
 
 const router = useRouter();
+const route = useRoute();
 
 const handleRouterTo = (path: string) => {
   router.push({ path: path });
@@ -22,13 +23,15 @@ const handleRouterTo = (path: string) => {
       <div class="ml-4 flex h-full items-center text-[16px] text-gray-300">
         <div
           class="hover:text-primary flex h-full cursor-pointer items-center px-6 transition-colors duration-200 hover:bg-[#c0c0c038]"
+          :class="[route.path === '/home' ? 'text-primary bg-[#c0c0c038]' : '']"
           @click="handleRouterTo('/')"
         >
           <icon icon="ant-design:home-outlined" />
           <span class="ml-1">首页</span>
         </div>
         <div
-          class="hover:text-primary flex h-full cursor-pointer items-center px-6 transition-colors duration-200 hover:bg-[#c0c0c038]"
+          class="hover:text-primary mx-1 flex h-full cursor-pointer items-center px-6 transition-colors duration-200 hover:bg-[#c0c0c038]"
+          :class="[route.path === '/friend' ? 'text-primary bg-[#c0c0c038]' : '']"
           @click="handleRouterTo('/friend')"
         >
           <icon icon="ant-design:user-outlined" />
@@ -36,6 +39,7 @@ const handleRouterTo = (path: string) => {
         </div>
         <div
           class="hover:text-primary flex h-full cursor-pointer items-center px-6 transition-colors duration-200 hover:bg-[#c0c0c038]"
+          :class="[route.path === '/about' ? 'text-primary bg-[#c0c0c038]' : '']"
           @click="handleRouterTo('/about')"
         >
           <icon icon="ant-design:info-circle-outlined" />

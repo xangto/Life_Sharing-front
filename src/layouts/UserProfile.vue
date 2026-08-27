@@ -10,7 +10,7 @@ const activeName = ref<string>('');
 </script>
 
 <template>
-  <div class="hover-shadow border-primary-opcatity overflow-hidden rounded-xl border pb-4 shadow">
+  <div class="hover-shadow overflow-hidden rounded-xl pb-4 shadow">
     <div>
       <img
         src="/avatar.jpg"
@@ -26,7 +26,7 @@ const activeName = ref<string>('');
         v-for="(item, i) in 5"
         :key="item"
         :class="[i > 0 ? 'ml-2' : '', i % 2 === 0 ? 'text-[red]' : '']"
-        class="border-primary-opcatity flex cursor-pointer items-center justify-center rounded-[50%] border bg-[#cccccc98] p-2 hover:bg-[#cccccc]"
+        class="flex cursor-pointer items-center justify-center rounded-[50%] bg-[#cccccc98] p-2 hover:bg-[#cccccc]"
         @click="handleTo('/')"
       >
         <Icon
