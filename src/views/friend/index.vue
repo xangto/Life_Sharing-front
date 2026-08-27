@@ -2,7 +2,7 @@
   <div class="w-full bg-white">
     <!-- 顶部标题 -->
     <div class="rounded-t-lg border border-b-0 border-gray-200 py-4 text-center">
-      <h2 class="text-xl font-bold text-gray-700">小伙伴们</h2>
+      <h2 class="text-2xl font-bold text-gray-700">小伙伴们</h2>
     </div>
 
     <!-- 友链卡片 -->
@@ -38,8 +38,6 @@
     <div class="border-primary border-t-2 border-b-2 p-4">
       <div
         class="typo content prose prose-sm max-w-none"
-        v-lazy-container="{ selector: 'img' }"
-        v-viewer
         v-html="info.content"
       ></div>
     </div>
