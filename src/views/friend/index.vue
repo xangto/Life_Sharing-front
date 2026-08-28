@@ -121,8 +121,11 @@ const rules = reactive<FormRules<FriendDTO>>({
     { required: true, message: '请输入昵称' },
     { max: 15, message: '昵称不可多于15个字符' },
   ],
-  // avatar: [],
-  description: [{ max: 40, message: '不可多于40个字符' }],
+  avatar: [{ required: true, message: '请输入头像url' }],
+  description: [
+    { required: true, message: '请输入描述' },
+    { max: 40, message: '不可多于40个字符' },
+  ],
   website: [{ validator: checkUrl }],
 });
 

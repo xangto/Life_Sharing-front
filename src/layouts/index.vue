@@ -6,16 +6,21 @@ import TagCloud from '@/layouts/TagCloud.vue';
 import PageFooter from '@/layouts/PageFooter.vue';
 import Category from '@/layouts/Category.vue';
 import { useRoute } from 'vue-router';
-import { computed } from 'vue';
+import { computed, watch } from 'vue';
 import { useScrollTOp } from '@/hooks/useScrollTOp.ts';
 import { Icon } from '@iconify/vue';
 import AnimatedText from '@/components/AnimatedText.vue';
 
 const route = useRoute();
 const path = computed(() => route.path);
+const fullPath = computed(() => route.fullPath);
 const isHome = computed(() => path.value === '/home');
 
-const { scrollYValue } = useScrollTOp();
+const { scrollYValue, scrollToTop } = useScrollTOp();
+
+watch(fullPath, () => {
+  scrollToTop();
+});
 
 const isShowBgColor = computed(() => scrollYValue.value > window.innerHeight * (3 / 5));
 
