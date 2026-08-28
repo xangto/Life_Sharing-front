@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed } from 'vue'
 
 const props = withDefaults(
   defineProps<{
-    text?: string;
-    type?: 'rainbow' | 'neon' | 'wave' | 'bounce' | 'shimmer' | 'rotate' | 'gradient' | 'sparkle';
-    speed?: number;
-    size?: string;
+    text?: string
+    type?: 'rainbow' | 'neon' | 'wave' | 'bounce' | 'shimmer' | 'rotate' | 'gradient' | 'sparkle'
+    speed?: number
+    size?: string
   }>(),
   {
     text: '特效文字',
@@ -14,9 +14,9 @@ const props = withDefaults(
     speed: 3,
     size: '48px',
   }
-);
+)
 
-const chars = computed(() => props.text.split(''));
+const chars = computed(() => props.text.split(''))
 </script>
 
 <template>

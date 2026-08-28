@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue';
-import TagItem from '@/components/TagItem.vue';
+import { Icon } from '@iconify/vue'
+import TagItem from '@/components/TagItem.vue'
 
 interface TagItem {
-  name: string;
-  color: string;
+  name: string
+  color: string
 }
 
 const tagList: TagItem[] = [
@@ -24,7 +24,7 @@ const tagList: TagItem[] = [
     name: 'java',
     color: '#e0188d',
   },
-];
+]
 </script>
 
 <template>

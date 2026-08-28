@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue';
-import TagItem from '@/components/TagItem.vue';
-import router from '@/router';
+import { Icon } from '@iconify/vue'
+import TagItem from '@/components/TagItem.vue'
+import router from '@/router'
 
 const tagList = [
   {
@@ -20,11 +20,11 @@ const tagList = [
     name: 'java',
     color: '#e0188d',
   },
-];
+]
 
 const handleToCategory = (categoryName: string) => {
-  router.push({ path: `/category/${categoryName}` });
-};
+  router.push({ path: `/category/${categoryName}` })
+}
 </script>
 
 <template>

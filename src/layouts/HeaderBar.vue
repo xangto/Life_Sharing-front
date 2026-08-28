@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue';
-import router from '@/router';
+import { Icon } from '@iconify/vue'
+import router from '@/router'
 
 const { isShowBgColor = true, path = '/home' } = defineProps<{
-  isShowBgColor: boolean;
-  path: string;
-}>();
+  isShowBgColor: boolean
+  path: string
+}>()
 
 const handleRouterTo = (path: string) => {
-  router.push({ path: path });
-};
+  router.push({ path: path })
+}
 </script>
 
 <template>

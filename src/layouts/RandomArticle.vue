@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue';
-import { ref } from 'vue';
+import { Icon } from '@iconify/vue'
+import { ref } from 'vue'
 
 const blogList = ref([
   { title: 'hishaidhaiso' },
   { title: 'hishaidhaiso' },
   { title: 'hishaidhaisohishaidhaisohishaidhaisohishaidhaiso' },
-]);
+])
 </script>
 
 <template>

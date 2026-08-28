@@ -89,10 +89,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from 'vue';
-import type { FormInstance, FormRules } from 'element-plus';
-import { checkUrl } from '@/utils/reg.ts';
-import type { FriendDTO, FriendVO } from '@/api/types.ts';
+import { ref, reactive } from 'vue'
+import type { FormInstance, FormRules } from 'element-plus'
+import { checkUrl } from '@/utils/reg.ts'
+import type { FriendDTO, FriendVO } from '@/api/types.ts'
 
 const bgColor = [
   '#1abc9c',
@@ -107,14 +107,14 @@ const bgColor = [
   '#9980fa',
   '#8c7ae6',
   '#f79f1f',
-];
+]
 
 const friendForm = reactive<FriendDTO>({
   nickname: '',
   avatar: '',
   description: '',
   website: '',
-});
+})
 
 const rules = reactive<FormRules<FriendDTO>>({
   nickname: [
@@ -127,10 +127,10 @@ const rules = reactive<FormRules<FriendDTO>>({
     { max: 40, message: '不可多于40个字符' },
   ],
   website: [{ validator: checkUrl }],
-});
+})
 
-const loading = ref(false);
-const formRef = ref<FormInstance | null>(null);
+const loading = ref(false)
+const formRef = ref<FormInstance | null>(null)
 const friendList = ref<FriendVO[]>([
   {
     id: '131as54d6a5s1dasd',
@@ -160,21 +160,21 @@ const friendList = ref<FriendVO[]>([
     avatar: '',
     description: 'xaasd',
   },
-]);
+])
 const info = {
   content:
     '<p>随机排序，不分先后。欢迎交换友链~(￣▽￣)~*</p>' +
     '\n<p>收到请求后，会在管理台审核后再添加！</p>\n',
-};
+}
 
 // 图片加载失败兜底
 const handleImgError = (e: Event) => {
-  const target = e.target as HTMLImageElement;
-  target.src = '/error.png';
-};
+  const target = e.target as HTMLImageElement
+  target.src = '/error.png'
+}
 
 const handleSubmit = () => {
-  loading.value = true;
+  loading.value = true
   formRef.value
     ?.validate()
     .then((valid) => {
@@ -182,18 +182,18 @@ const handleSubmit = () => {
       }
     })
     .finally(() => {
-      loading.value = false;
-    });
-};
+      loading.value = false
+    })
+}
 
 // 点击计数
 const addViews = (id: string) => {
-  console.log(id);
-};
+  console.log(id)
+}
 
 // 随机背景色
 const randomRGB = () => {
-  const index = Math.floor(Math.random() * bgColor.length);
-  return { backgroundColor: bgColor[index] };
-};
+  const index = Math.floor(Math.random() * bgColor.length)
+  return { backgroundColor: bgColor[index] }
+}
 </script>

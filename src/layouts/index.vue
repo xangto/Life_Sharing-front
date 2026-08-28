@@ -1,44 +1,44 @@
 <script setup lang="ts">
-import HeaderBar from '@/layouts/HeaderBar.vue';
-import UserProfile from '@/layouts/UserProfile.vue';
-import RandomArticle from '@/layouts/RandomArticle.vue';
-import TagCloud from '@/layouts/TagCloud.vue';
-import PageFooter from '@/layouts/PageFooter.vue';
-import Category from '@/layouts/Category.vue';
-import { useRoute } from 'vue-router';
-import { computed, watch } from 'vue';
-import { useScrollTOp } from '@/hooks/useScrollTOp.ts';
-import { Icon } from '@iconify/vue';
-import AnimatedText from '@/components/AnimatedText.vue';
+import HeaderBar from '@/layouts/HeaderBar.vue'
+import UserProfile from '@/layouts/UserProfile.vue'
+import RandomArticle from '@/layouts/RandomArticle.vue'
+import TagCloud from '@/layouts/TagCloud.vue'
+import PageFooter from '@/layouts/PageFooter.vue'
+import Category from '@/layouts/Category.vue'
+import { useRoute } from 'vue-router'
+import { computed, watch } from 'vue'
+import { useScrollTOp } from '@/hooks/useScrollTOp.ts'
+import { Icon } from '@iconify/vue'
+import AnimatedText from '@/components/AnimatedText.vue'
 
-const route = useRoute();
-const path = computed(() => route.path);
-const fullPath = computed(() => route.fullPath);
-const isHome = computed(() => path.value === '/home');
+const route = useRoute()
+const path = computed(() => route.path)
+const fullPath = computed(() => route.fullPath)
+const isHome = computed(() => path.value === '/home')
 
-const { scrollYValue, scrollToTop } = useScrollTOp();
+const { scrollYValue, scrollToTop } = useScrollTOp()
 
 watch(fullPath, () => {
-  scrollToTop();
-});
+  scrollToTop()
+})
 
-const isShowBgColor = computed(() => scrollYValue.value > window.innerHeight * (3 / 5));
+const isShowBgColor = computed(() => scrollYValue.value > window.innerHeight * (3 / 5))
 
 const handleToMain = () => {
-  const element = document.getElementById('main-container');
+  const element = document.getElementById('main-container')
   if (element) {
     // element.scrollIntoView({
     //   behavior: 'smooth', // 平滑滚动
     //   block: 'start', // 滚动到顶部
     //   inline: 'nearest',
     // });
-    const top = element.offsetTop;
+    const top = element.offsetTop
     window.scrollTo({
       top: top - 64,
       behavior: 'smooth',
-    });
+    })
   }
-};
+}
 </script>
 
 <template>

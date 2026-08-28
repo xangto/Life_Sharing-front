@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import router from '@/router';
+import router from '@/router'
 
 const { name = '', color = '' } = defineProps<{
-  name: string;
-  color: string;
-}>();
+  name: string
+  color: string
+}>()
 const handleTo = (tagName: string) => {
-  router.push({ path: `/tag/${tagName}` });
-};
+  router.push({ path: `/tag/${tagName}` })
+}
 </script>
 
 <template>

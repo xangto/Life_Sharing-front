@@ -30,17 +30,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from 'vue'
 
-const activeIndex = ref<number | null>(null);
+const activeIndex = ref<number | null>(null)
 
 const accordionData = ref([
   { title: '标题111', content: '内容1111内容1111内容1111内容1111内容1111' },
   { title: '标题222', content: '内容1111内容1111内容1111内容1111内容1111' },
   { title: '标题3333', content: '内容1111内容1111内容1111内容1111内容1111' },
-]);
+])
 
 const handleChangeIndex = (index: number) => {
-  activeIndex.value = index;
-};
+  activeIndex.value = index
+}
 </script>

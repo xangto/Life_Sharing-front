@@ -33,12 +33,12 @@
 </template>
 
 <script setup lang="ts">
-import { Icon } from '@iconify/vue';
-import { useScrollTOp } from '@/hooks/useScrollTOp.ts';
+import { Icon } from '@iconify/vue'
+import { useScrollTOp } from '@/hooks/useScrollTOp.ts'
 
-const currentYear = new Date().getFullYear();
+const currentYear = new Date().getFullYear()
 
-const { scrollToTop, showBackTop } = useScrollTOp();
+const { scrollToTop, showBackTop } = useScrollTOp()
 </script>
 
 <style scoped></style>

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue';
-import { ref } from 'vue';
+import { Icon } from '@iconify/vue'
+import { ref } from 'vue'
 
 const handleTo = (url: string) => {
-  console.log(url);
-};
+  console.log(url)
+}
 
-const activeName = ref<string>('');
+const activeName = ref<string>('')
 </script>
 
 <template>

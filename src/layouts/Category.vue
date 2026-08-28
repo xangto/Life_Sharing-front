@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue';
-import type { OptionVO } from '@/api/types.ts';
-import router from '@/router';
+import { Icon } from '@iconify/vue'
+import type { OptionVO } from '@/api/types.ts'
+import router from '@/router'
 
 const categoryList: OptionVO[] = [
   {
     label: 'home',
     value: 'home',
   },
-];
+]
 
 const handleTo = (item: string) => {
-  router.push({ path: `/category/${item}` });
-};
+  router.push({ path: `/category/${item}` })
+}
 </script>
 
 <template>

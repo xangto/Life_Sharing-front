@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const { description = '暂无内容' } = defineProps<{
-  description?: string;
-}>();
+  description?: string
+}>()
 </script>
 
 <template>
