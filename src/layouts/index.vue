@@ -9,6 +9,7 @@ import { useRoute } from 'vue-router';
 import { computed } from 'vue';
 import { useScrollTOp } from '@/hooks/useScrollTOp.ts';
 import { Icon } from '@iconify/vue';
+import AnimatedText from '@/components/AnimatedText.vue';
 
 const route = useRoute();
 const path = computed(() => route.path);
@@ -46,7 +47,14 @@ const handleToMain = () => {
         src="/bg.jpg"
         alt=""
       />
-      <div class="rainbow-text absolute top-[50%] left-[50%] -translate-1/2">XNAGTO`S BLOG</div>
+      <div class="text-primary absolute top-[50%] left-[50%] -translate-1/2">
+        <animated-text
+          text="XNAGTO`S BLOG"
+          type="bounce"
+          :speed="2"
+          class="tracking-wide select-none"
+        />
+      </div>
       <div
         class="floating-element absolute bottom-20 left-[50%] -translate-x-1/2 cursor-pointer text-6xl text-fuchsia-100"
         @click="handleToMain"
